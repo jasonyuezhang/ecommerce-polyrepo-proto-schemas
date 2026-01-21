@@ -11,6 +11,11 @@ This repository contains all `.proto` files and code generation configurations f
 - **Inventory Service** - Stock management, reservations, tracking
 - **Common Types** - Shared messages (pagination, errors, money, etc.)
 
+These proto definitions are consumed by:
+- `be-api-gin` - REST API Gateway
+- `be-graphql-go` - GraphQL Gateway with request orchestration
+- Backend microservices (`svc-user-django`, `svc-listing-spring`, `svc-inventory-rails`)
+
 ## Prerequisites
 
 ### Required Tools
