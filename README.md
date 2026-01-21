@@ -2,6 +2,70 @@
 
 Centralized Protocol Buffer definitions for the e-commerce microservices platform.
 
+## 🎯 About This Repository
+
+This repository is part of the **ecommerce-polyrepo** project - a polyrepo setup designed for testing the [Propel](https://propel.us) code review feature across multiple microservices.
+
+### Role in Microservices Architecture
+
+This repository provides the **shared contract layer** for all gRPC communication:
+
+```
+┌─────────────────────────────────────────┐
+│        Proto Schemas [THIS REPO]        │
+│  Centralized Protocol Buffer Definitions│
+└────────────┬───────────┬────────────────┘
+             │           │
+     ┌───────┘           └─────────┐
+     │                             │
+┌────▼─────┐   ┌──────────────┐   │
+│   User   │   │   Listing    │   │
+│ Service  │   │   Service    │   │
+│(Django)  │   │(Spring Boot) │   │
+└──────────┘   └──────────────┘   │
+     │              │              │
+     │              │              │
+     └──────┬───────┴──────┬───────┘
+            │              │
+     ┌──────▼──────┐  ┌────▼─────────┐
+     │ API Gateway │  │  Inventory   │
+     │  (Go/Gin)   │  │   Service    │
+     └─────────────┘  │   (Rails)    │
+                      └──────────────┘
+```
+
+### Quick Start (Standalone Testing)
+
+To generate gRPC code from proto definitions:
+
+```bash
+# 1. Install prerequisites
+brew install buf protoc
+
+# 2. Lint proto files
+buf lint
+
+# 3. Generate code for all languages
+buf generate
+
+# Or generate for specific language:
+make generate-go
+make generate-python
+make generate-java
+make generate-ruby
+
+# 4. Check for breaking changes
+buf breaking --against '.git#branch=main'
+
+# 5. View generated code
+ls -la gen/go/
+ls -la gen/python/
+```
+
+**Note:** This repository contains no runnable services - only proto definitions and generated code. Services consume these definitions via `gen/` directories. See the [parent polyrepo](https://github.com/jasonyuezhang/ecommerce-polyrepo) for how services use these schemas.
+
+---
+
 ## Overview
 
 This repository contains all `.proto` files and code generation configurations for the e-commerce platform's gRPC services:
