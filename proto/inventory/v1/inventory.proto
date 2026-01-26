@@ -106,19 +106,20 @@ message StockLevel {
   string warehouse_id = 4;
 
   // Total quantity in stock.
-  int64 quantity = 5;
+  // Optimized from int64 to int32 - no product needs >2B units
+  int32 quantity = 5;
 
   // Quantity reserved for orders.
-  int64 reserved = 6;
+  int32 reserved = 6;
 
   // Available quantity (quantity - reserved).
-  int64 available = 7;
+  int32 available = 7;
 
   // Quantity on order from supplier.
-  int64 on_order = 8;
+  int32 on_order = 8;
 
   // Low stock threshold.
-  int64 low_stock_threshold = 9;
+  int32 low_stock_threshold = 9;
 
   // Whether stock is below threshold.
   bool is_low_stock = 10;
