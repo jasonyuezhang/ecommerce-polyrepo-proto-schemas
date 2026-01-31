@@ -181,7 +181,8 @@ message Reservation {
   string warehouse_id = 6;
 
   // Reserved quantity.
-  int64 quantity = 7;
+  // Optimized from int64 to int32 - reservations never exceed 2B units
+  int32 quantity = 7;
 
   // Reservation status.
   ReservationStatus status = 8;
