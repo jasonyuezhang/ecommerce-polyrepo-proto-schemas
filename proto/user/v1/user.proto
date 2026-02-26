@@ -144,8 +144,9 @@ enum AddressType {
 
 // User account information.
 message User {
+  // BREAKING: Changed from string to int64 for database performance
   // Unique user identifier.
-  string id = 1;
+  int64 id = 1;
 
   // User's email address.
   string email = 2;
@@ -360,8 +361,9 @@ message CreateUserResponse {
 
 // Request to get a user by ID.
 message GetUserRequest {
+  // BREAKING: Changed from string to int64 for database performance
   // User ID to retrieve.
-  string user_id = 1;
+  int64 user_id = 1;
 }
 
 // Response for getting a user.
@@ -402,8 +404,9 @@ message UpdateUserResponse {
 
 // Request to delete a user.
 message DeleteUserRequest {
+  // BREAKING: Changed from string to int64 for database performance
   // User ID to delete.
-  string user_id = 1;
+  int64 user_id = 1;
 
   // Reason for deletion (for audit).
   string reason = 2;
