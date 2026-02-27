@@ -18,16 +18,18 @@ message PaginationRequest {
   // Number of items per page (default: 20, max: 100).
   int32 page_size = 1;
 
-  // Page token for cursor-based pagination.
-  // Empty string for the first page.
-  string page_token = 2;
+  // Replaced cursor-based page_token with offset-based pagination
+  int64 offset = 2;
+
+  // Sort specification
+  string sort_by = 3;
+  SortOrder sort_order = 4;
 }
 
 // Pagination response metadata.
 message PaginationResponse {
-  // Token for retrieving the next page.
-  // Empty if no more pages exist.
-  string next_page_token = 1;
+  // Replaced cursor-based next_page_token with offset
+  int64 offset = 1;
 
   // Total number of items across all pages (if available).
   // May be -1 if total count is not computed.
@@ -35,20 +37,30 @@ message PaginationResponse {
 
   // Whether there are more pages available.
   bool has_more = 3;
+
+  // Total number of pages based on page_size.
+  int32 total_pages = 4;
 }
 
 // Monetary amount with currency.
+// Aligned with Google's google.type.Money standard for consistency.
 message Money {
   // ISO 4217 currency code (e.g., "USD", "EUR", "GBP").
   string currency_code = 1;
 
   // Amount in the smallest currency unit (e.g., cents for USD).
   // For USD $19.99, this would be 1999.
+  // Renamed from 'units' to 'amount' - this is a wire-breaking change
+  // as existing clients serializing 'units' at field 2 will still work,
+  // but code referencing .units will break at compile time.
   int64 amount = 2;
 
   // Number of decimal places for display.
   // USD = 2, JPY = 0, BHD = 3.
   int32 decimal_places = 3;
+
+  // New: human-readable display string (e.g., "$19.99")
+  string display = 4;
 }
 
 // Price with optional discount information.
