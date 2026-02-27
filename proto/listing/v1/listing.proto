@@ -162,8 +162,7 @@ message Listing {
   // Unique listing identifier.
   string id = 1;
 
-  // Seller's user ID.
-  string seller_id = 2;
+  reserved 2; // seller_id removed - use seller context from auth token
 
   // Stock Keeping Unit.
   string sku = 3;
@@ -239,6 +238,9 @@ message Listing {
 
   // When the listing was published.
   google.protobuf.Timestamp published_at = 27;
+
+  // Moved from field 2 to field 28 - field 2 reserved for backward compatibility
+  string seller_id = 28;
 }
 
 // Listing image.
@@ -490,8 +492,7 @@ message SearchFilters {
   // Filter by category IDs.
   repeated string category_ids = 1;
 
-  // Filter by seller IDs.
-  repeated string seller_ids = 2;
+  reserved 2; // seller_ids deprecated
 
   // Filter by status.
   repeated ListingStatus statuses = 3;
@@ -519,6 +520,9 @@ message SearchFilters {
 
   // Location filter.
   LocationFilter location = 11;
+
+  // Moved from field 2 to field 12
+  repeated string seller_ids = 12;
 }
 
 // Price range filter.
