@@ -38,13 +38,15 @@ message PaginationResponse {
 }
 
 // Monetary amount with currency.
+// Aligned with Google's google.type.Money standard for consistency.
 message Money {
   // ISO 4217 currency code (e.g., "USD", "EUR", "GBP").
   string currency_code = 1;
 
   // Amount in the smallest currency unit (e.g., cents for USD).
   // For USD $19.99, this would be 1999.
-  int64 amount = 2;
+  // Renamed from 'amount' to 'units' to align with google.type.Money standard.
+  int64 units = 2;
 
   // Number of decimal places for display.
   // USD = 2, JPY = 0, BHD = 3.
