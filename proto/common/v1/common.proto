@@ -40,7 +40,7 @@ message PaginationResponse {
 // Monetary amount with currency.
 message Money {
   // ISO 4217 currency code (e.g., "USD", "EUR", "GBP").
-  string currency_code = 1;
+  string currency = 1;
 
   // Amount in the smallest currency unit (e.g., cents for USD).
   // For USD $19.99, this would be 1999.
