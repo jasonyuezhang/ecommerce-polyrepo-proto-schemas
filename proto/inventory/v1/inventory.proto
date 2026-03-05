@@ -94,7 +94,7 @@ service InventoryService {
 // Stock level information.
 message StockLevel {
   // Listing ID.
-  string listing_id = 1;
+  string product_id = 1;
 
   // Variant ID (empty for listings without variants).
   string variant_id = 2;
@@ -373,7 +373,7 @@ message StockTransfer {
 // Transfer item.
 message TransferItem {
   // Listing ID.
-  string listing_id = 1;
+  string product_id = 1;
 
   // Variant ID.
   string variant_id = 2;
@@ -499,7 +499,7 @@ enum MovementType {
 // Request to get stock.
 message GetStockRequest {
   // Listing ID.
-  string listing_id = 1;
+  string product_id = 1;
 
   // Variant ID (optional).
   string variant_id = 2;
@@ -553,7 +553,7 @@ message BatchGetStockRequest {
 // Stock query item.
 message StockQuery {
   // Listing ID.
-  string listing_id = 1;
+  string product_id = 1;
 
   // Variant ID (optional).
   string variant_id = 2;
@@ -577,7 +577,7 @@ message WarehouseStockList {
 // Request to update stock.
 message UpdateStockRequest {
   // Listing ID.
-  string listing_id = 1;
+  string product_id = 1;
 
   // Variant ID (optional).
   string variant_id = 2;
@@ -601,7 +601,7 @@ message UpdateStockResponse {
 // Request to adjust stock.
 message AdjustStockRequest {
   // Listing ID.
-  string listing_id = 1;
+  string product_id = 1;
 
   // Variant ID (optional).
   string variant_id = 2;
@@ -631,7 +631,7 @@ message AdjustStockResponse {
 // Request to set absolute stock level.
 message SetStockRequest {
   // Listing ID.
-  string listing_id = 1;
+  string product_id = 1;
 
   // Variant ID (optional).
   string variant_id = 2;
@@ -673,7 +673,7 @@ message ReserveStockRequest {
 // Item to reserve.
 message ReservationItem {
   // Listing ID.
-  string listing_id = 1;
+  string product_id = 1;
 
   // Variant ID (optional).
   string variant_id = 2;
@@ -697,7 +697,7 @@ message ReserveStockResponse {
 // Reservation failure.
 message ReservationFailure {
   // Listing ID.
-  string listing_id = 1;
+  string product_id = 1;
 
   // Variant ID.
   string variant_id = 2;
@@ -913,7 +913,7 @@ message ListTransfersResponse {
 // Request to get stock movements.
 message GetStockMovementsRequest {
   // Filter by listing ID.
-  string listing_id = 1;
+  string product_id = 1;
 
   // Filter by variant ID.
   string variant_id = 2;
@@ -943,7 +943,7 @@ message GetStockMovementsResponse {
 // Request to set low stock threshold.
 message SetLowStockThresholdRequest {
   // Listing ID.
-  string listing_id = 1;
+  string product_id = 1;
 
   // Variant ID (optional).
   string variant_id = 2;
@@ -1078,7 +1078,7 @@ message WarehouseInventorySummary {
 // Top product in summary.
 message TopProduct {
   // Listing ID.
-  string listing_id = 1;
+  string product_id = 1;
 
   // Listing title.
   string title = 2;
