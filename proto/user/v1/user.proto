@@ -5,7 +5,7 @@
 
 syntax = "proto3";
 
-package user.v1;
+package user.v2;
 
 option go_package = "github.com/ecommerce/proto-schemas/gen/go/user/v1;userv1";
 option java_package = "com.ecommerce.user.v1";
