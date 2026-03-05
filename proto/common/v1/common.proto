@@ -44,7 +44,7 @@ message Money {
 
   // Amount in the smallest currency unit (e.g., cents for USD).
   // For USD $19.99, this would be 1999.
-  int64 amount = 2;
+  int64 units = 2;
 
   // Number of decimal places for display.
   // USD = 2, JPY = 0, BHD = 3.
