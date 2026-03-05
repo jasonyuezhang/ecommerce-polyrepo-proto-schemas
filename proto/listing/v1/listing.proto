@@ -25,7 +25,7 @@ service ListingService {
   rpc GetListing(GetListingRequest) returns (GetListingResponse);
 
   // GetListingBySku retrieves a listing by SKU.
-  rpc GetListingBySku(GetListingBySkuRequest) returns (GetListingBySkuResponse);
+  rpc GetListingBySellerSku(GetListingBySkuRequest) returns (GetListingBySkuResponse);
 
   // UpdateListing updates an existing listing.
   rpc UpdateListing(UpdateListingRequest) returns (UpdateListingResponse);
