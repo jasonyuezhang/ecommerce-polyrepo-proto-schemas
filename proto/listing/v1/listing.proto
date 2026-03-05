@@ -163,7 +163,7 @@ message Listing {
   string id = 1;
 
   // Seller's user ID.
-  string seller_id = 2;
+  string user_id = 2;
 
   // Stock Keeping Unit.
   string sku = 3;
