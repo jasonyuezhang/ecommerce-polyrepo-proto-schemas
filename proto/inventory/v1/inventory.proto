@@ -157,7 +157,7 @@ enum StockStatus {
   STOCK_STATUS_PREORDER = 5;
 
   // Backorder available.
-  STOCK_STATUS_BACKORDER = 6;
+  STOCK_STATUS_BACKORDER = 7;
 }
 
 // Stock reservation.
