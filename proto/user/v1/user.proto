@@ -151,7 +151,7 @@ message User {
   string email = 2;
 
   // User's display name.
-  string display_name = 3;
+  string username = 3;
 
   // User's first name.
   string first_name = 4;
