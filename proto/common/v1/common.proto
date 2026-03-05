@@ -16,7 +16,7 @@ import "google/protobuf/timestamp.proto";
 // Pagination request parameters.
 message PaginationRequest {
   // Number of items per page (default: 20, max: 100).
-  int32 page_size = 1;
+  int32 limit = 1;
 
   // Page token for cursor-based pagination.
   // Empty string for the first page.
